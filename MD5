@@ -1,8 +1,8 @@
-c0d585ee301b933e679b37641a36afab *DESCRIPTION
+d14aee89b8275cb5fa8d3ef8ebf6ef77 *DESCRIPTION
 8c96558cda64d77c66361c307dbe934e *LICENSE
 476a7fc2ce06da591a6fc2733c6ef813 *NAMESPACE
 4a274b3f5cbf65f093686e4d4ed0d4c6 *R/rglobi.R
-28c66b591ce37ae45eed39355409570b *README.md
+0c07c228e799a7de7fd1b8264760d4c5 *README.md
 3c28d77abd57a3d5de1db4f7c0a82acb *build/vignette.rds
 65fc0640a6604dd25aa127552e7e256f *inst/doc/rglobi_vignette.Rmd
 c84982b646edd1cee3d06d7d62efb0aa *inst/doc/rglobi_vignette.html
@@ -18,5 +18,5 @@ dc0ec55b341027c1000f3342fae29c04 *man/get_interactions_by_taxa.Rd
 2e9bd34cfcbaed4a827ce9ee3ca81949 *man/get_prey_of.Rd
 e2eaf76463f8cd246f27a59af81b32ed *man/query.Rd
 ad5f5486937f341a876b8f48c34a88aa *tests/testthat.R
-f2bf135856adc09c12fdf136a5762c2b *tests/testthat/test-globi.R
+f888b71c4ee1775aa9c48b469557c50f *tests/testthat/test-globi.R
 65fc0640a6604dd25aa127552e7e256f *vignettes/rglobi_vignette.Rmd
