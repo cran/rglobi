@@ -9,8 +9,8 @@ Description: A programmatic interface to the web service methods
     taxonomic name. In addition, it supports Cypher, a graph query
     language, to allow for executing custom queries on the GloBI 
     aggregate species interaction dataset.
-Version: 0.2.6
-Date: 2015-03-17
+Version: 0.2.8
+Date: 2015-05-12
 Authors@R: c(person("Jorrit", "Poelen", role = c("aut", "cre"),
     email = "jhpoelen@xs4all.nl"),
     person("Stephen", "Gosnell", role = "aut",
@@ -24,11 +24,11 @@ Depends: R (>= 3.0.1)
 License: MIT + file LICENSE
 Imports: rjson (>= 0.2.13), RCurl
 Suggests: testthat, knitr
-Packaged: 2015-03-17 18:19:03 UTC; jorrit
+NeedsCompilation: no
+Packaged: 2015-05-13 15:56:38 UTC; jorrit
 Author: Jorrit Poelen [aut, cre],
   Stephen Gosnell [aut],
   Sergey Slyusarev [aut]
 Maintainer: Jorrit Poelen <jhpoelen@xs4all.nl>
-NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2015-03-17 21:00:00
+Date/Publication: 2015-05-13 19:55:01
