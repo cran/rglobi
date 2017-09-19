@@ -41,6 +41,21 @@ get_interactions <- function(taxon = "Homo sapiens", interaction.type = "preysOn
   get_interactions_by_taxa (sourcetaxon = taxon, interactiontype = interaction.type, ...)
 }
 
+#' Get Species Interactions by Interaction Type from GloBI
+#'
+#' @param interactiontype the requested interaction type (e.g. preysOn)
+#' @param ... list of options to configure GloBI API
+#' @return species interactions given provided interaction type(s)
+#' @family interactions
+#' @export
+#' @examples \dontrun{
+#' get_interactions_by_type(interactiontype = c("eats", "eatenBy"))
+#' get_interactions_by_type(interactiontype = "parasiteOf")
+#' }
+get_interactions_by_type <- function(interactiontype = c("interactsWith"), ...) {
+  get_interactions_by_taxa (sourcetaxon = NULL, interactiontype = interactiontype, ...)
+}
+
 #' Get a List of Prey for given Predator Taxon
 #'
 #' @param taxon scientific name of predator taxon. Can be any taxonomic rank (e.g. Homo sapiens, Animalia)
@@ -368,7 +383,7 @@ unique_target_taxa_of_source_taxon <- function(source.taxon.name, target.taxon.n
 #' @examples \dontrun{
 #' get_interaction_matrix("Homo sapiens", "Mammalia", "interactsWith")
 #' }
-get_interaction_matrix <- function(source.taxon.names = list('Homo sapiens'), target.taxon.names = list('Mammalia'), interaction.type = 'interactsWith', opts = list()) {
+get_interaction_matrix <- function(source.taxon.names = list('Homo sapiens'), target.taxon.names = list('Mammalia'), interaction.type = 'eats', opts = list()) {
   Reduce(function(accum, source.taxon.name) rbind(accum, unique_target_taxa_of_source_taxon(source.taxon.name, target.taxon.names, interaction.type, opts = opts)), source.taxon.names, init=data.frame())
 }
 

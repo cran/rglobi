@@ -1,11 +1,11 @@
 
-=======
-[![Build Status](https://travis-ci.org/ropensci/rglobi.svg?branch=master)](https://travis-ci.org/ropensci/rglobi)[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rglobi?color=E664A4)](https://github.com/metacran/cranlogs.app)[![cran version](http://www.r-pkg.org/badges/version/rglobi)](http://cran.r-project.org/package=rglobi)
-
-
+# rglobi 
 R library to access species interaction data of http://globalbioticinteractions.org
 
-To install ```rglobi``` from [CRAN](http://cran.r-project.org/package=rglobi):
+[![Build Status](https://travis-ci.org/ropensci/rglobi.svg?branch=master)](https://travis-ci.org/ropensci/rglobi) [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rglobi?color=E664A4)](https://github.com/metacran/cranlogs.app) [![cran version](http://www.r-pkg.org/badges/version/rglobi)](https://CRAN.R-project.org/package=rglobi)
+
+## install 
+To install ```rglobi``` from [CRAN](https://CRAN.R-project.org/package=rglobi):
 ```R
 install.packages("rglobi")
 ```
@@ -16,7 +16,7 @@ install.packages("devtools")
 devtools::install_github("ropensci/rglobi")
 ```
 
-## Getting Data
+## examples
 
 ```R
 library(rglobi)
@@ -32,17 +32,19 @@ get_interaction_types()
 obs <- get_interactions_by_taxa(sourcetaxon = "Aves", bbox=c(-125.53344800000002,32.750323,-114.74487299999998,41.574361), targettaxon = "Rodentia", returnobservations=T)
 locations <- cbind(obs$target_taxon_name, obs$latitude, obs$longitude)
 ```
-Please see R help pages (e.g. ```?get_interactions_by_taxa``` and [vignettes](http://cran.r-project.org/package=rglobi) for more information.
+Please see R help pages (e.g. ```?get_interactions_by_taxa``` and [vignettes](https://CRAN.R-project.org/package=rglobi) for more information.
 
-## Tests
+## tests
 Tests can be executed using devtools package.
 ```R
 # workdir should be rglobi repo root directory (check with getwd())
+# install dependencies 
+devtools::install('.')
 devtools::test()
 ```
 This should reload the library, executes the test_that testcases and show test reports.
 
-## Documentation
+## documentation
 roxygen2 is used to generate .Rd and NAMESPACE by running:
 ```R
  library(roxygen2)
@@ -51,10 +53,10 @@ roxygen2 is used to generate .Rd and NAMESPACE by running:
 
 Vignettes are generated using ```knitr``` and ```markdown``` packages.
 
-## Meta
+## meta
 
 Please [report any issues or bugs](https://github.com/ropensci/rglobi/issues).
 
 This package is part of the [rOpenSci](http://ropensci.org/packages) project.
 
-[![rOpenSci footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![rOpenSci footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
