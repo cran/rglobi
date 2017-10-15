@@ -1,10 +1,10 @@
-a8d73b7720aa9dbe8c90fe15deb76bd7 *DESCRIPTION
+792b75fc127a0a9ab3ceee08b2e08a11 *DESCRIPTION
 062b10ae02633c753356825ec3502a53 *LICENSE
 b007e9539b984697575533331fa374a3 *NAMESPACE
-40bd6efe32f67f868ca2d16a27c92b2f *NEWS
-9a18f349fc9497c9826008a08d123859 *R/rglobi.R
+ef4cd5f171fbadd71f5b2d8e4c388205 *NEWS
+034cb5077f32622297e2eb058994e0a1 *R/rglobi.R
 5d9dcd07490a9cd30f5123fbc3cae9c4 *README.md
-b3f89a978458d8f2ba08d757996fe299 *build/vignette.rds
+81b669047d8047300b3c121450778c4a *build/vignette.rds
 056142a91dc08638914ede5760617e0a *inst/doc/rglobi_vignette.Rmd
 e54285cbe3994b4ad3e5a4020568a283 *inst/doc/rglobi_vignette.html
 b7aad2510be15c9f9dede4f8a57c5af0 *man/get_child_taxa.Rd
@@ -13,7 +13,7 @@ f010f3240674382334e54771afc9f20c *man/get_data_fields.Rd
 d4511bbf10a8a02fd49e0ae375231dfe *man/get_interaction_matrix.Rd
 5f92700973de6ed61061ff2e1ef773fc *man/get_interaction_table.Rd
 17cebf83ef22190762cc4fbadcb9ab61 *man/get_interaction_types.Rd
-d8c8fb25d6d261fdefaeb86723cc92f8 *man/get_interactions.Rd
+cee9e4d0b3d48a09c2db7294a3aabaeb *man/get_interactions.Rd
 08f335631a575691a0188df8e2eb64f8 *man/get_interactions_by_taxa.Rd
 ce6d425711858f6a0bee018e03c27f74 *man/get_interactions_by_type.Rd
 a36a48db8182e82f25250c93c93ea847 *man/get_interactions_in_area.Rd
