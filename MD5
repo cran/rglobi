@@ -1,12 +1,12 @@
-792b75fc127a0a9ab3ceee08b2e08a11 *DESCRIPTION
+0467c24c09d5276c795776ddb4aad1b8 *DESCRIPTION
 062b10ae02633c753356825ec3502a53 *LICENSE
 b007e9539b984697575533331fa374a3 *NAMESPACE
-ef4cd5f171fbadd71f5b2d8e4c388205 *NEWS
+55670ee06b44d8cee367468f0d8877c0 *NEWS
 034cb5077f32622297e2eb058994e0a1 *R/rglobi.R
-5d9dcd07490a9cd30f5123fbc3cae9c4 *README.md
-81b669047d8047300b3c121450778c4a *build/vignette.rds
-056142a91dc08638914ede5760617e0a *inst/doc/rglobi_vignette.Rmd
-e54285cbe3994b4ad3e5a4020568a283 *inst/doc/rglobi_vignette.html
+0630040ab2bd1f8adc9946e87eb4c5e4 *README.md
+f972f3d1d36157418dfc612c70fc884f *build/vignette.rds
+a3397e734d7842e4a8cdb0b45c67bf4e *inst/doc/rglobi_vignette.Rmd
+66eb1b90aaed3135ea71dad78ec687ee *inst/doc/rglobi_vignette.html
 b7aad2510be15c9f9dede4f8a57c5af0 *man/get_child_taxa.Rd
 f010f3240674382334e54771afc9f20c *man/get_data_fields.Rd
 3170450d760ebb293848334f4cc2f2f1 *man/get_interaction_areas.Rd
@@ -21,5 +21,5 @@ a2047c90b5a23432dcd44482ba2a6050 *man/get_predators_of.Rd
 59f03cb3beeb8d30908c4f75f28dbfb2 *man/get_prey_of.Rd
 c6fd6064236fcf035dcc4d27948545da *man/query.Rd
 ad5f5486937f341a876b8f48c34a88aa *tests/testthat.R
-4a4f9db975bcf2696bf8a8e3ea3c0645 *tests/testthat/test-globi.R
-056142a91dc08638914ede5760617e0a *vignettes/rglobi_vignette.Rmd
+9f3bb288016a00df7fda265c381d6136 *tests/testthat/test-globi.R
+a3397e734d7842e4a8cdb0b45c67bf4e *vignettes/rglobi_vignette.Rmd

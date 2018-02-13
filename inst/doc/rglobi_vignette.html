@@ -249,8 +249,6 @@ hr {
 <pre><code class="r">library(&quot;rglobi&quot;)
 </code></pre>
 
-<p>Note that since rglobi is still pretty new, only the dev version of the library is available at this time. We hope to publish a version to CRAN once the library matures. For more information see <a href="https://github.com/ropensci/rglobi">GitHub</a>.</p>
-
 <h4>Find interactions involving a certain species</h4>
 
 <p>Determining which species interact with each other (and how and where) is a major focus of ecology.  The Global Biotic Interactions Database offers data on multiple interaction types, and the <code>rglobi</code> library offers several ways to specify and access these interactions. <code>get_interactions()</code> is the primary function used if data on a specific interaction type is required.  A focus taxon is entered (may be specified as &ldquo;Genus species&rdquo; or higher level (e.g., Genus, Family, Class)).</p>
@@ -574,7 +572,30 @@ result
 ## 10 Moschus chrysogaster
 </code></pre>
 
-<p>This particular query returns the names of the first ten known prey or diet items of humans (<em>Homo sapiens</em>). More examples of GloBI specific Cypher queries can be found on the <a href="https://github.com/jhpoelen/eol-globi-data/wiki/cypher">GloBI Cypher Wiki</a>. </p>
+<p>This particular query returns the names of the first ten known prey or diet items of humans (<em>Homo sapiens</em>). More examples of GloBI specific Cypher queries can be found on the <a href="https://github.com/jhpoelen/eol-globi-data/wiki/cypher">GloBI Cypher Wiki</a>.</p>
+
+<h4>Pagination</h4>
+
+<p>By default, the amount of results are limited. If you&#39;d like to retrieve all results, you can used pagination. For instance, to retrieve parasitic interactions using pagination, you can use:</p>
+
+<pre><code class="r">otherkeys = list(&quot;limit&quot;=10, &quot;skip&quot;=0)
+first_page_of_ten &lt;- get_interactions_by_type(interactiontype = c(&quot;hasParasite&quot;), otherkeys = otherkeys)
+otherkeys = list(&quot;limit&quot;=10, &quot;skip&quot;=10)
+second_page_of_ten &lt;- get_interactions_by_type(interactiontype = c(&quot;hasParasite&quot;), otherkeys = otherkeys)
+</code></pre>
+
+<p>To exhaust all available interactions, you can keep paging results until the size of the page is less than the limit (e.g., <code>nrows(interactions) &lt; limit</code>).</p>
+
+<h4>Selecting Taxonomic Schemes</h4>
+
+<p>GloBI integrations with various different taxonomies (see <a href="https://github.com/jhpoelen/eol-globi-data/wiki/api#selecting-specific-taxonomies">Selecting specific taxonomies</a>). </p>
+
+<p>To select a specific preferred taxonomy like the <a href="http://opentreeoflife.org">Open Tree of Life</a> reference taxonomy to retrieve up to 10 parasitic interactions, use:</p>
+
+<pre><code class="r">parasitic_interactions &lt;- get_interactions_by_type(interactiontype = c(&quot;hasParasite&quot;), otherkeys = list(&quot;taxonIdPrefix&quot;=&quot;OTT&quot;, &quot;limit&quot;=10))
+</code></pre>
+
+<p>Note that if no taxonomic mapping for the preferred taxonomy is available, another taxonomy will be selected.</p>
 
 </body>
 
