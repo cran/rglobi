@@ -1,7 +1,7 @@
-0467c24c09d5276c795776ddb4aad1b8 *DESCRIPTION
+8c579d29fa9b5ef9ec9279c808101c03 *DESCRIPTION
 062b10ae02633c753356825ec3502a53 *LICENSE
 b007e9539b984697575533331fa374a3 *NAMESPACE
-55670ee06b44d8cee367468f0d8877c0 *NEWS
+210a1c851173779fb503d65c593ff2da *NEWS
 034cb5077f32622297e2eb058994e0a1 *R/rglobi.R
 0630040ab2bd1f8adc9946e87eb4c5e4 *README.md
 f972f3d1d36157418dfc612c70fc884f *build/vignette.rds
@@ -21,5 +21,5 @@ a2047c90b5a23432dcd44482ba2a6050 *man/get_predators_of.Rd
 59f03cb3beeb8d30908c4f75f28dbfb2 *man/get_prey_of.Rd
 c6fd6064236fcf035dcc4d27948545da *man/query.Rd
 ad5f5486937f341a876b8f48c34a88aa *tests/testthat.R
-9f3bb288016a00df7fda265c381d6136 *tests/testthat/test-globi.R
+31c5b8ab9f48032ebe79edf235b68465 *tests/testthat/test-globi.R
 a3397e734d7842e4a8cdb0b45c67bf4e *vignettes/rglobi_vignette.Rmd
