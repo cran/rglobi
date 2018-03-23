@@ -1,10 +1,10 @@
-8c579d29fa9b5ef9ec9279c808101c03 *DESCRIPTION
+78587212505015c6dff7541aa238312e *DESCRIPTION
 062b10ae02633c753356825ec3502a53 *LICENSE
 b007e9539b984697575533331fa374a3 *NAMESPACE
-210a1c851173779fb503d65c593ff2da *NEWS
+0ee216d13cf4314ba56e8e4a22f09666 *NEWS
 034cb5077f32622297e2eb058994e0a1 *R/rglobi.R
 0630040ab2bd1f8adc9946e87eb4c5e4 *README.md
-f972f3d1d36157418dfc612c70fc884f *build/vignette.rds
+53727960ee9a5de37c271ed930c778ba *build/vignette.rds
 a3397e734d7842e4a8cdb0b45c67bf4e *inst/doc/rglobi_vignette.Rmd
 66eb1b90aaed3135ea71dad78ec687ee *inst/doc/rglobi_vignette.html
 b7aad2510be15c9f9dede4f8a57c5af0 *man/get_child_taxa.Rd
@@ -21,5 +21,5 @@ a2047c90b5a23432dcd44482ba2a6050 *man/get_predators_of.Rd
 59f03cb3beeb8d30908c4f75f28dbfb2 *man/get_prey_of.Rd
 c6fd6064236fcf035dcc4d27948545da *man/query.Rd
 ad5f5486937f341a876b8f48c34a88aa *tests/testthat.R
-31c5b8ab9f48032ebe79edf235b68465 *tests/testthat/test-globi.R
+f30d4914acab1b47afd874ffed3a259c *tests/testthat/test-globi.R
 a3397e734d7842e4a8cdb0b45c67bf4e *vignettes/rglobi_vignette.Rmd
