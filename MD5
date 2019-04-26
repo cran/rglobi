@@ -1,10 +1,10 @@
-1c78738fab5d495f7aeb4743bddf4855 *DESCRIPTION
+29a6b9e8edf0b5b241e6b15160f545c7 *DESCRIPTION
 062b10ae02633c753356825ec3502a53 *LICENSE
 b007e9539b984697575533331fa374a3 *NAMESPACE
-927d26f71c2ea6364ada9029dc8c74fa *NEWS
-66d49c318b5a4d602c3b3d58128adaca *R/rglobi.R
+5832041580451767f044f6289bd73708 *NEWS
+92efd8aa66d62fb2160a397bc33f48a9 *R/rglobi.R
 eb1b7cb77099f9ae80d307ac529986ea *README.md
-013b22e2ed9c1829c62744b0e53975c5 *build/vignette.rds
+b7102b1181e237fbb7f63412690b9f16 *build/vignette.rds
 a3397e734d7842e4a8cdb0b45c67bf4e *inst/doc/rglobi_vignette.Rmd
 66eb1b90aaed3135ea71dad78ec687ee *inst/doc/rglobi_vignette.html
 b7aad2510be15c9f9dede4f8a57c5af0 *man/get_child_taxa.Rd
