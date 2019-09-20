@@ -41,10 +41,7 @@ has_neo4j_api <- function() {
 # @param url points to csv resource
 read_csv <- function(url, ...) {
     if (has_api()) {
-      tf <- tempfile()
-      req <- curl::curl_fetch_disk(url, tf)
-      message(req$status_code)
-      utils::read.csv(tf, encoding = "UTF-8", stringsAsFactors = FALSE, fileEncoding = "UTF-8", ...)
+      as.data.frame(suppressMessages(readr::read_csv(url)))
     } else {
       stop(paste("GloBI data services are not available at [", globi_api_url, "]. Are you connected to the internet?", sep = ""))
     }
@@ -131,7 +128,7 @@ cypher_result_as_dataframe <- function(result) {
 #' Executes a Cypher Query Against GloBI's Neo4j Instance
 #'
 #' @import RCurl
-#' @param cypherQuery Cypher query (see http://github.com/jhpoelen/eol-globi-data/wiki/cypher for examples)
+#' @param cypherQuery Cypher query (see http://github.com/globalbioticinteractions/globalbioticinteractions/wiki/cypher for examples)
 #' @param opts list of named options to configure GloBI API
 #' @return result of cypher query string
 #' @export

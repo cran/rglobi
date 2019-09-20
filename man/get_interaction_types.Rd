@@ -29,4 +29,5 @@ Other interactions: \code{\link{get_child_taxa}},
   \code{\link{get_interactions}},
   \code{\link{get_predators_of}}, \code{\link{get_prey_of}}
 }
+\concept{interactions}
 \keyword{database}
