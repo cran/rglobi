@@ -39,7 +39,7 @@ has_neo4j_api <- function() {
 
 # Read csv URL
 # @param url points to csv resource
-read_csv <- function(url, ...) {
+read_csv_online <- function(url, ...) {
     if (has_api()) {
       as.data.frame(suppressMessages(readr::read_csv(url)))
     } else {
@@ -194,6 +194,7 @@ create_bbox_param <- function(bbox) {
 #' @param returnobservations if true, all individual observations are returned,
 #' else only distinct relationships
 #' @param opts list of named options to configure GloBI API
+#' @param read_csv function used to find csv associated to query url, defaulting to online query method
 #' @return Returns data frame of interactions
 #' @keywords database
 #' @export
@@ -207,7 +208,7 @@ create_bbox_param <- function(bbox) {
 #' }
 get_interactions_by_taxa <- function(sourcetaxon, targettaxon = NULL, interactiontype = NULL, accordingto = NULL,
   showfield = c("source_taxon_external_id","source_taxon_name","source_taxon_path","source_specimen_life_stage","interaction_type","target_taxon_external_id","target_taxon_name","target_taxon_path","target_specimen_life_stage","latitude","longitude","study_citation","study_external_id","study_source_citation"),
-  otherkeys = NULL, bbox = NULL, returnobservations = F, opts = list()){
+  otherkeys = NULL, bbox = NULL, returnobservations = F, opts = list(), read_csv = read_csv_online){
   if(length(interactiontype)>0){
     interactiontypes <- as.vector(get_interaction_types()[,1])
     if(length(intersect(interactiontypes, interactiontype)) == 0){
@@ -284,6 +285,7 @@ get_interactions_in_area <- function(bbox, ...){
 #' @param bbox Coordinates in EPSG:4326 decimal degrees defining "left, bottom,
 #' right, top" of bounding box
 #' @param ... list of named options to configure GloBI API
+#' @param read_csv function used to find csv associated to query url, defaulting to online query method
 #' @return Returns data frame of coordinates
 #' @keywords database
 #' @export
@@ -292,7 +294,7 @@ get_interactions_in_area <- function(bbox, ...){
 #' get_interaction_areas ()
 #' get_interaction_areas (bbox=c(-67.87,12.79,-57.08,23.32))
 #' }
-get_interaction_areas <- function(bbox = NULL, ...){
+get_interaction_areas <- function(bbox = NULL, read_csv = read_csv_online, ...){
   requesturl <- read_csv (get_globi_url("/locations?type=csv", ...))
   names (requesturl) <- c ("Latitude", "Longitude")
   requesturl$Latitude <- as.numeric (requesturl$Latitude)
@@ -317,6 +319,7 @@ get_interaction_areas <- function(bbox = NULL, ...){
 #' @description Returns data frame with supported interaction types
 #'
 #' @param opts list of named options to configure GloBI API
+#' @param read_csv function used to find csv associated to query url, defaulting to online query method
 #' @return Returns data frame of supported interaction types
 #' @keywords database
 #' @export
@@ -324,7 +327,7 @@ get_interaction_areas <- function(bbox = NULL, ...){
 #' @examples \dontrun{
 #' get_interaction_types()
 #' }
-get_interaction_types <- function(opts = list()) {
+get_interaction_types <- function(opts = list(), read_csv = read_csv_online) {
   read_csv(get_globi_url("/interactionTypes.csv?type=csv", opts = opts))
 }
 
@@ -333,6 +336,7 @@ get_interaction_types <- function(opts = list()) {
 #' @description Returns data frame with supported data fields
 #'
 #' @param opts list of named options to configure GloBI API
+#' @param read_csv function used to find csv associated to query url, defaulting to online query method
 #' @return Returns data frame of supported data fields
 #' @keywords database
 #' @export
@@ -340,7 +344,7 @@ get_interaction_types <- function(opts = list()) {
 #' @examples \dontrun{
 #' get_data_fields()
 #' }
-get_data_fields <- function(opts = list()) {
+get_data_fields <- function(opts = list(), read_csv = read_csv_online) {
   read_csv(get_globi_url("/interactionFields.csv?type=csv", opts = opts))
 }
 
@@ -384,8 +388,8 @@ rel_type_interaction_type <- function(interaction.type) {
 
 # Retrieves diet items of given predator and classifies them by matching the prey categories against
 # both taxon hierarchy of prey and the name that was originally used to describe the prey.
-unique_target_taxa_of_source_taxon <- function(source.taxon.name, target.taxon.names, interaction.type, opts = list()) {
-  result <- get_interactions_by_taxa(sourcetaxon = source.taxon.name, interactiontype = interaction.type, targettaxon = target.taxon.names, opts = opts) 
+unique_target_taxa_of_source_taxon <- function(source.taxon.name, target.taxon.names, interaction.type, opts = list(), read_csv = read_csv_online) {
+  result <- get_interactions_by_taxa(sourcetaxon = source.taxon.name, interactiontype = interaction.type, targettaxon = target.taxon.names, opts = opts, read_csv = read_csv) 
   ReportProgress()
   all.taxa.paths <- Reduce(function(accum, path) paste(accum, path), paste('{',result$target_taxon_path,'}', sep=''))
   has.prey.category <- lapply(target.taxon.names, function(prey.category) {
@@ -405,14 +409,15 @@ unique_target_taxa_of_source_taxon <- function(source.taxon.name, target.taxon.n
 #' @param target.taxon.names list of target taxon names
 #' @param interaction.type the preferred interaction type (e.g. preysOn)
 #' @param opts list of options to configure GloBI API
+#' @param read_csv function used to find csv associated to query url, defaulting to online query method
 #' @return matrix representing species interactions between source and target taxa
 #' @family interactions
 #' @export
 #' @examples \dontrun{
 #' get_interaction_matrix("Homo sapiens", "Mammalia", "interactsWith")
 #' }
-get_interaction_matrix <- function(source.taxon.names = list('Homo sapiens'), target.taxon.names = list('Mammalia'), interaction.type = 'eats', opts = list()) {
-  Reduce(function(accum, source.taxon.name) rbind(accum, unique_target_taxa_of_source_taxon(source.taxon.name, target.taxon.names, interaction.type, opts = opts)), source.taxon.names, init=data.frame())
+get_interaction_matrix <- function(source.taxon.names = list('Homo sapiens'), target.taxon.names = list('Mammalia'), interaction.type = 'eats', opts = list(), read_csv = read_csv_online) {
+  Reduce(function(accum, source.taxon.name) rbind(accum, unique_target_taxa_of_source_taxon(source.taxon.name, target.taxon.names, interaction.type, opts = opts, read_csv = read_csv)), source.taxon.names, init=data.frame())
 }
 
 #' Returns all known child taxa with known interaction of specified taxa and rank.
