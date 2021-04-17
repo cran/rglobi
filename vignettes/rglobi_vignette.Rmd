@@ -1,18 +1,13 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Introduction to the rglobi package}
--->
+---
+title: Introduction to the rglobi package
+author: Jorrit Poelen
+vignette: >
+    %\VignetteIndexEntry{introduction}
+    %\VignetteEngine{knitr::knitr}
+    %\VignetteEncoding{UTF-8}
+---
 
-
-
-rglobi vignette - an R interface to the aggregated biotic interaction data of GloBI (http://globalbioticinteractions.org)
-======
-
-### About the package
-
-`rglobi` allows easy access to the GLoBI database by wrapping the existing API.  
-
-********************
+`rglobi` allows easy access to biotic interactions via the Global Biotic Interactions (GLoBI, https://www.globalbioticinteractions.org/) database by wrapping the existing API.  
 
 ### Quick start
 
@@ -240,7 +235,7 @@ head(rattus)
 ## 6                         NA       NA        NA          NA
 ```
 
-Only a source taxa need be identified, but you can also specify a target taxon and/or geographic boundary (Coordinates must be in decimal degrees ([EPSG:4326](http://spatialreference.org/ref/epsg/wgs-84/)) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  
+Only a source taxa need be identified, but you can also specify a target taxon and/or geographic boundary (Coordinates must be in decimal degrees ([EPSG:4326](https://spatialreference.org/ref/epsg/wgs-84/)) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  
 
 
 ```r
@@ -295,7 +290,7 @@ head(aves_crustacea_northern_hemisphere)
 
 #### Find interactions in a geographic areas
 
-Instead of a taxon-specific approach, users may also wish to gather information on all interactions occuring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  `rglobi` enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees ([EPSG:4326](http://spatialreference.org/ref/epsg/wgs-84/)) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  
+Instead of a taxon-specific approach, users may also wish to gather information on all interactions occuring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  `rglobi` enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees ([EPSG:4326](https://spatialreference.org/ref/epsg/wgs-84/)) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  
 
 
 ```r
@@ -383,7 +378,7 @@ head(areas)
 
 #### Custom Queries using Cypher
 
-Currently, GloBI is powered by [neo4j](http://neo4j.org), a graph database. Most results created by the R functions provided by `rglobi` are basically wrappers for commonly used cypher queries. This way, you can still use the library without having to learn Cypher, a graph query language. However, if you feel adventurous, you can execute queries using Cypher only using the function `query()`:
+Currently, GloBI is powered by [neo4j](https://neo4j.com/), a graph database. Most results created by the R functions provided by `rglobi` are basically wrappers for commonly used cypher queries. This way, you can still use the library without having to learn Cypher, a graph query language. However, if you feel adventurous, you can execute queries using Cypher only using the function `query()`:
 
 
 ```r

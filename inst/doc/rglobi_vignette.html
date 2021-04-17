@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>rglobi vignette - an R interface to the aggregated biotic interaction data of GloBI (<a href="http://globalbioticinteractions.org">http://globalbioticinteractions.org</a>)</title>
+<title>Quick start</title>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -201,18 +201,7 @@ hr {
 </head>
 
 <body>
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Introduction to the rglobi package}
--->
-
-<h1>rglobi vignette - an R interface to the aggregated biotic interaction data of GloBI (<a href="http://globalbioticinteractions.org">http://globalbioticinteractions.org</a>)</h1>
-
-<h3>About the package</h3>
-
-<p><code>rglobi</code> allows easy access to the GLoBI database by wrapping the existing API.  </p>
-
-<hr/>
+<p><code>rglobi</code> allows easy access to biotic interactions via the Global Biotic Interactions (GLoBI, <a href="https://www.globalbioticinteractions.org/">https://www.globalbioticinteractions.org/</a>) database by wrapping the existing API.  </p>
 
 <h3>Quick start</h3>
 
@@ -421,7 +410,7 @@ head(rattus)
 ## 6                         NA       NA        NA          NA
 </code></pre>
 
-<p>Only a source taxa need be identified, but you can also specify a target taxon and/or geographic boundary (Coordinates must be in decimal degrees (<a href="http://spatialreference.org/ref/epsg/wgs-84/">EPSG:4326</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
+<p>Only a source taxa need be identified, but you can also specify a target taxon and/or geographic boundary (Coordinates must be in decimal degrees (<a href="https://spatialreference.org/ref/epsg/wgs-84/">EPSG:4326</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
 
 <pre><code class="r">aves_crustacea_northern_hemisphere &lt;- get_interactions_by_taxa( sourcetaxon = &quot;Aves&quot;, targettaxon = &quot;Crustacea&quot;, bbox=c(-180, 0, 180, 90 ))
 head(aves_crustacea_northern_hemisphere)
@@ -473,7 +462,7 @@ head(aves_crustacea_northern_hemisphere)
 
 <h4>Find interactions in a geographic areas</h4>
 
-<p>Instead of a taxon-specific approach, users may also wish to gather information on all interactions occuring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  <code>rglobi</code> enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees (<a href="http://spatialreference.org/ref/epsg/wgs-84/">EPSG:4326</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
+<p>Instead of a taxon-specific approach, users may also wish to gather information on all interactions occuring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  <code>rglobi</code> enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees (<a href="https://spatialreference.org/ref/epsg/wgs-84/">EPSG:4326</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
 
 <pre><code class="r">gulfinteractions &lt;- get_interactions_in_area( bbox=c(-97.0, 17.5, -81, 31))
 head(gulfinteractions)
@@ -553,7 +542,7 @@ head(areas)
 
 <h4>Custom Queries using Cypher</h4>
 
-<p>Currently, GloBI is powered by <a href="http://neo4j.org">neo4j</a>, a graph database. Most results created by the R functions provided by <code>rglobi</code> are basically wrappers for commonly used cypher queries. This way, you can still use the library without having to learn Cypher, a graph query language. However, if you feel adventurous, you can execute queries using Cypher only using the function <code>query()</code>:</p>
+<p>Currently, GloBI is powered by <a href="https://neo4j.com/">neo4j</a>, a graph database. Most results created by the R functions provided by <code>rglobi</code> are basically wrappers for commonly used cypher queries. This way, you can still use the library without having to learn Cypher, a graph query language. However, if you feel adventurous, you can execute queries using Cypher only using the function <code>query()</code>:</p>
 
 <pre><code class="r">result &lt;- query(&quot;START taxon = node:taxons(name=&#39;Homo sapiens&#39;) MATCH taxon&lt;-[:CLASSIFIED_AS]-predator-[:ATE|PREYS_ON]-&gt;prey-[:CLASSIFIED_AS]-&gt;preyTaxon RETURN distinct(preyTaxon.name) as `prey.taxon.name` LIMIT 10&quot;)
 result
