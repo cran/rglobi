@@ -410,7 +410,7 @@ head(rattus)
 ## 6                         NA       NA        NA          NA
 </code></pre>
 
-<p>Only a source taxa need be identified, but you can also specify a target taxon and/or geographic boundary (Coordinates must be in decimal degrees (<a href="https://spatialreference.org/ref/epsg/wgs-84/">EPSG:4326</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
+<p>Only a source taxa need be identified, but you can also specify a target taxon and/or geographic boundary (Coordinates must be in decimal degrees (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System">EPSG:4326 aka WGS 84 or WGS 1984</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
 
 <pre><code class="r">aves_crustacea_northern_hemisphere &lt;- get_interactions_by_taxa( sourcetaxon = &quot;Aves&quot;, targettaxon = &quot;Crustacea&quot;, bbox=c(-180, 0, 180, 90 ))
 head(aves_crustacea_northern_hemisphere)
@@ -462,7 +462,7 @@ head(aves_crustacea_northern_hemisphere)
 
 <h4>Find interactions in a geographic areas</h4>
 
-<p>Instead of a taxon-specific approach, users may also wish to gather information on all interactions occuring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  <code>rglobi</code> enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees (<a href="https://spatialreference.org/ref/epsg/wgs-84/">EPSG:4326</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
+<p>Instead of a taxon-specific approach, users may also wish to gather information on all interactions occuring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  <code>rglobi</code> enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System">EPSG:4326 aka WGS 84 or WGS 1984</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
 
 <pre><code class="r">gulfinteractions &lt;- get_interactions_in_area( bbox=c(-97.0, 17.5, -81, 31))
 head(gulfinteractions)
