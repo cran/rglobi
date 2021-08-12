@@ -1,12 +1,12 @@
-a54f866fc750d30aa23a1e7da8827f8f *DESCRIPTION
+fc7cd9e5dbe80cf4d2d6e741d7f5fe9d *DESCRIPTION
 062b10ae02633c753356825ec3502a53 *LICENSE
 b007e9539b984697575533331fa374a3 *NAMESPACE
-eb1e1077e0a69d8083291a8fdd755a7c *NEWS
+977efac0223697b4f67fab82d7e5d7a6 *NEWS
 b820d98757f03d9000209e2545965c1e *R/rglobi.R
 90d18d23be7262bc5e4dc01fb34c0d30 *README.md
-c8272ca2979656b6a8930558792373e6 *build/vignette.rds
-b1a0037b20a4fde969bf7d19f9aeaf25 *inst/doc/rglobi_vignette.Rmd
-9c7974e6a4dba0ec564c38d9cda1e4a9 *inst/doc/rglobi_vignette.html
+fe81b3526a109c991b5b58c4f84c0578 *build/vignette.rds
+477c1b712c37f40c6fb277ccbf47cad9 *inst/doc/rglobi_vignette.Rmd
+c1c542c3fd1983b2337c084d965d93b4 *inst/doc/rglobi_vignette.html
 4f51d4caa20be7ba88236920b2338201 *man/get_child_taxa.Rd
 9dd86f78122b5eb57eec335466b1733b *man/get_data_fields.Rd
 ed604e4eb1232012db66594841c02b24 *man/get_interaction_areas.Rd
@@ -39,4 +39,4 @@ a06435dd73e3d69ab431d56b12d68bb8 *tests/testthat/cache/c60a4c30c129aac24d6978d58
 ce8eaa8997512e0feff04d063c9235b6 *tests/testthat/cache/fb340844a5cdab8c10c6943f8d185aeb7ce09d89ad175ecea0aa281b7e007c49
 59b7dfbc054151a099ce87134592631d *tests/testthat/helper.R
 ea358b3394571be339039be4a0f4ca5f *tests/testthat/test-globi.R
-b1a0037b20a4fde969bf7d19f9aeaf25 *vignettes/rglobi_vignette.Rmd
+477c1b712c37f40c6fb277ccbf47cad9 *vignettes/rglobi_vignette.Rmd

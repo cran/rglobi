@@ -340,6 +340,82 @@ head(hsapiens)
 ## 6                         NA       NA        NA          NA
 </code></pre>
 
+<h4>Find citations using individual interaction records</h4>
+
+<p>By default, <code>get_interactions()</code> returns interaction records aggregated by source/target taxa and interaction type. This means that a single result can be based on a single claim, or many claims (e.g., many individual records claiming that sea otters (<em>Enhydra lutris</em>) eat (eats, <a href="http://purl.obolibrary.org/obo/RO_0002470">RO:0002470</a>) Red Rock Crabs (<em>Cancer productus</em>)). In addition, the aggregated results exclude values specific to individual claims like latitude, longitude, study_citation, study_source_citation. This is why these and other values will show up as NA by default. </p>
+
+<p>To retrieve an exhaustive list of <em>all</em>, unaggregated, interaction records, set the <code>returnobservations=T</code>. For instance, </p>
+
+<pre><code class="r">sea_otter_prey &lt;- get_interactions(taxon = &quot;Enhydra lutris&quot;, interaction.type = &quot;preysOn&quot;, returnobservations=T)
+head(sea_otter_prey)
+</code></pre>
+
+<p>results in </p>
+
+<pre><code>##  source_taxon_external_id      source_taxon_name
+## 1        INAT_TAXON:133061 Enhydra lutris kenyoni
+## 2        INAT_TAXON:117520  Enhydra lutris nereis
+## 3        INAT_TAXON:117520  Enhydra lutris nereis
+## 4        INAT_TAXON:117520  Enhydra lutris nereis
+## 5        INAT_TAXON:117520  Enhydra lutris nereis
+## 6        INAT_TAXON:117520  Enhydra lutris nereis
+##                                                                           source_taxon_path
+## 1 Animalia | Chordata | Mammalia | Carnivora | Mustelidae | Enhydra | Enhydra lutris kenyoni
+## 2  Animalia | Chordata | Mammalia | Carnivora | Mustelidae | Enhydra | Enhydra lutris nereis
+## 3  Animalia | Chordata | Mammalia | Carnivora | Mustelidae | Enhydra | Enhydra lutris nereis
+## 4  Animalia | Chordata | Mammalia | Carnivora | Mustelidae | Enhydra | Enhydra lutris nereis
+## 5  Animalia | Chordata | Mammalia | Carnivora | Mustelidae | Enhydra | Enhydra lutris nereis
+## 6  Animalia | Chordata | Mammalia | Carnivora | Mustelidae | Enhydra | Enhydra lutris nereis
+##  source_specimen_life_stage interaction_type target_taxon_external_id
+## 1                       &lt;NA&gt;          preysOn             GBIF:2289226
+## 2                       &lt;NA&gt;          preysOn         INAT_TAXON:47828
+## 3                       &lt;NA&gt;          preysOn         INAT_TAXON:47828
+## 4                       &lt;NA&gt;          preysOn             GBIF:2285679
+## 5                       &lt;NA&gt;          preysOn                 GBIF:137
+## 6                       &lt;NA&gt;          preysOn         INAT_TAXON:47826
+##  target_taxon_name
+## 1           Octopus
+## 2         Cancridae
+## 3         Cancridae
+## 4           Mytilus
+## 5          Bivalvia
+## 6  Cancer productus
+##                                                                                                                           target_taxon_path
+## 1                                                                       Animalia | Mollusca | Cephalopoda | Octopoda | Octopodidae | Octopus
+## 2 Animalia | Arthropoda | Crustacea | Multicrustacea | Malacostraca | Eucarida | Decapoda | Pleocyemata | Brachyura | Cancroidea | Cancridae
+## 3 Animalia | Arthropoda | Crustacea | Multicrustacea | Malacostraca | Eucarida | Decapoda | Pleocyemata | Brachyura | Cancroidea | Cancridae
+## 4                                                                            Animalia | Mollusca | Bivalvia | Mytilida | Mytilidae | Mytilus
+## 5                                                                                                             Animalia | Mollusca | Bivalvia
+## 6                                                    Animalia | Arthropoda | Malacostraca | Decapoda | Cancridae | Cancer | Cancer productus
+##  target_specimen_life_stage latitude longitude
+## 1                       &lt;NA&gt; 56.93835 -135.7816
+## 2                       &lt;NA&gt; 35.39714 -120.9534
+## 3                       &lt;NA&gt; 35.39714 -120.9534
+## 4                       &lt;NA&gt; 36.95229 -121.6419
+## 5                       &lt;NA&gt; 36.90766 -121.7446
+## 6                       &lt;NA&gt; 36.99515 -121.6459
+##                                                                                                                                                       study_citation
+## 1        Donna Pomeroy. 2012. Enhydra lutris kenyoni prey id Octopus. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/1181454&gt; on 25 Jul 2021.
+## 2      Marisa Agarwal. 2014. Enhydra lutris nereis prey id Cancridae. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/1130763&gt; on 25 Jul 2021.
+## 3      Marisa Agarwal. 2014. Enhydra lutris nereis prey id Cancridae. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/1130763&gt; on 25 Jul 2021.
+## 4          James Maughn. 2015. Enhydra lutris nereis prey id Mytilus. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/1964813&gt; on 25 Jul 2021.
+## 5         James Maughn. 2014. Enhydra lutris nereis prey id Bivalvia. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/1119439&gt; on 25 Jul 2021.
+## 6 Donna Pomeroy. 2014. Enhydra lutris nereis prey id Cancer productus. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/799531&gt; on 25 Jul 2021.
+##                                                                                                                        study_source_citation
+## 1 http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world.
+## 2 http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world.
+## 3 http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world.
+## 4 http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world.
+## 5 http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world.
+## 6 http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world.
+</code></pre>
+
+<p>After introducing the <code>returnobservations=T</code>, the results now include values for <code>study_citation</code> and <code>study_source_citation</code>. Also, if available, values for individual properties of interaction records (e.g., <code>latitude</code>, <code>longitude</code>) will be included. </p>
+
+<p>Note that the arguments can also be used in related methods (e.g., <code>get_interactions_by_taxa(sourcetaxon=&quot;Enhydra lutris&quot;, targettaxon=&quot;Cancer productus&quot;, interactiontype=&quot;eats&quot;, returnobservations=T)</code>). </p>
+
+<h4>Listing supported interaction types</h4>
+
 <p>For a complete list of supported interaction types, </p>
 
 <pre><code class="r">get_interaction_types()
@@ -462,7 +538,7 @@ head(aves_crustacea_northern_hemisphere)
 
 <h4>Find interactions in a geographic areas</h4>
 
-<p>Instead of a taxon-specific approach, users may also wish to gather information on all interactions occuring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  <code>rglobi</code> enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System">EPSG:4326 aka WGS 84 or WGS 1984</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
+<p>Instead of a taxon-specific approach, users may also wish to gather information on all interactions occurring in a specific area.  For example, a group developing ecoystem models for the Gulf of Mexico may want to consider all the data from that region.  <code>rglobi</code> enables this type of search by allowing users to specify a rectangular bounding box. Coordinates must be in decimal degrees (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System">EPSG:4326 aka WGS 84 or WGS 1984</a>) and correspond to the west, south, east, and northern boundaries (i.e., min x, min y, max x, max y).  </p>
 
 <pre><code class="r">gulfinteractions &lt;- get_interactions_in_area( bbox=c(-97.0, 17.5, -81, 31))
 head(gulfinteractions)
