@@ -1,5 +1,6 @@
 context("rglobi")
 
+
 test_that("default prey", {
   predatorPrey <- get_prey_of(taxon = "Homo sapiens", read_csv = read_csv_offline)
   expect_true(length(predatorPrey) > 0)
@@ -14,23 +15,6 @@ test_that("prey of Ariopsis felis", {
 test_that("predator of rats", {
   predators <- get_predators_of(taxon = "Rattus rattus", read_csv = read_csv_offline)
   expect_true(length(predators) > 0)
-})
-
-test_that("cypher query", {
-  human <- query("START taxon = node:taxons(name='Homo sapiens') RETURN taxon.name as `name`, taxon.path as `path` LIMIT 1")
-  expect_equal(as.character(human$name), "Homo sapiens")
-  expect_equal(class(human$name), "character")
-  taxon_path <- as.character(human$path)
-  expect_equal(grep('Primates', taxon_path), 1)
-})
-
-test_that("no result cypher query", {
-  res <- query("START predatorTaxon = node:taxons(name='Calisto hysius') MATCH preyTaxon<-[:CLASSIFIED_AS]-prey<-[:ATE|PREYED_ON]-predator-[:CLASSIFIED_AS]->predatorTaxon WHERE has(preyTaxon.path) RETURN distinct(preyTaxon.name), preyTaxon.path as `prey.taxon.path`")
-  expect_equal(0, length(res))
-})
-
-test_that("invalid cypher query", {
-  throws_error(query("this is not a valid cypher query"))
 })
 
 test_that("interactions returned based on species", {
@@ -77,11 +61,8 @@ test_that("interactions subsetted by adding additional information using otherke
   expect_equal(dim(merge(unique(rattusaves),unique(rattus), all.x=T, all.y=T)), dim(unique(rattus)))
 })
 
-test_that("bad bouding box throws error", {
-  throws_error(get_interactions_by_taxa(sourcetaxon = "Rattus rattus", bbox=c(23,35,22,50), read_csv = read_csv_offline ))
-  throws_error(get_interactions_by_taxa(sourcetaxon = "Rattus rattus", bbox=c(23,35,22), read_csv = read_csv_offline))
-  throws_error(get_interaction_areas(bbox=c(23,35,22,50), read_csv = read_csv_offline))
-  throws_error(get_interactions_in_area(bbox=c(23,35,22,50), read_csv = read_csv_offline))
+test_that("bad bounding box throws error", {
+  expect_error(get_interactions_by_taxa(sourcetaxon = "Rattus rattus", bbox=c(23,35,22,50), read_csv = read_csv_offline ), "Coordinates entered incorrectly")
 })
 
 test_that("interaction types", {
