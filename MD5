@@ -1,10 +1,10 @@
-2e7e9718f810d594f8e43dc376a3a6b1 *DESCRIPTION
+a199888f0a8a456b1d58ae67ba0c967c *DESCRIPTION
 062b10ae02633c753356825ec3502a53 *LICENSE
 b007e9539b984697575533331fa374a3 *NAMESPACE
-c9ca019e036f8d0f33a317d9dc59e3b6 *NEWS
-7b630ef256dea32695aaeaadb7123068 *R/rglobi.R
+65647a9914c2f12fc64c9adf32e7b75f *NEWS
+4ad695004f50cb22d632472228f5f1dc *R/rglobi.R
 90d18d23be7262bc5e4dc01fb34c0d30 *README.md
-c04ab57b42994c9ae44f70859bdb1cd9 *build/vignette.rds
+ddf128c648a67aeb8bd1705c49d1a104 *build/vignette.rds
 477c1b712c37f40c6fb277ccbf47cad9 *inst/doc/rglobi_vignette.Rmd
 c1c542c3fd1983b2337c084d965d93b4 *inst/doc/rglobi_vignette.html
 4f51d4caa20be7ba88236920b2338201 *man/get_child_taxa.Rd
@@ -39,5 +39,5 @@ a06435dd73e3d69ab431d56b12d68bb8 *tests/testthat/cache/c60a4c30c129aac24d6978d58
 ce8eaa8997512e0feff04d063c9235b6 *tests/testthat/cache/fb340844a5cdab8c10c6943f8d185aeb7ce09d89ad175ecea0aa281b7e007c49
 59b7dfbc054151a099ce87134592631d *tests/testthat/helper.R
 38e44dc833c0fed4ca0da41f7b334c31 *tests/testthat/test-cypher.R
-53e3cbd7f392c682287d41ec2fbc2e08 *tests/testthat/test-globi.R
+07ca45296dd2e0b289bc9686bcfd5f92 *tests/testthat/test-globi.R
 477c1b712c37f40c6fb277ccbf47cad9 *vignettes/rglobi_vignette.Rmd
