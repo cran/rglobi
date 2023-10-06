@@ -1,3 +1,21 @@
+# rglobi 0.3.4
+ * changed package title to omit the leading "R" - from "R Interface to ..." to "Interface to ..."
+ * for boolean defaults, use "= TRUE" style, instead of shorthand "= T" 
+ * replaced wrapped examples from "dontrun{}" to "donttest{}" 
+
+# rglobi 0.3.3
+ * Change http://ropensci.org/packages to https://reopensci.org/packages/ to address a "note" due to 403 forbidden and a 301 redirect.
+
+# rglobi 0.3.2
+ * Change https://globalbioticinteractions.org to https://www.globalbioticinteractions.org to address a "note" due to 301 redirect.
+
+# rglobi 0.3.1
+ * Remove travis-ci badge in README.md that caused a "note" due to 301 redirect.
+ * Remove references to Cypher query support in vignettes.
+
+# rglobi 0.3.0
+ * Removing support for directly executing Cypher queries: cypher queries are open ended, caused intermittent test errors, and subject to change in future neo4j upgrades. 
+
 # rglobi 0.2.28
 
  * Adding warning message when query generates more results than can be returned. Big thanks for Helen Waters for their contributions @H-Waters https://github.com/H-Waters via https://github.com/ropensci/# rglobi/pull/45

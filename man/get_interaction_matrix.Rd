@@ -4,9 +4,13 @@
 \alias{get_interaction_matrix}
 \title{Get Interaction Matrix. Constructs an interaction matrix indicating whether source taxa (rows) or target taxa (columns) are known to interact with given type.}
 \usage{
-get_interaction_matrix(source.taxon.names = list("Homo sapiens"),
-  target.taxon.names = list("Mammalia"), interaction.type = "eats",
-  opts = list(), read_csv = read_csv_online)
+get_interaction_matrix(
+  source.taxon.names = list("Homo sapiens"),
+  target.taxon.names = list("Mammalia"),
+  interaction.type = "eats",
+  opts = list(),
+  read_csv = read_csv_online
+)
 }
 \arguments{
 \item{source.taxon.names}{list of source taxon names (e.g. list('Mammalia', 'Aves', 'Ariopsis felis'))}
@@ -26,17 +30,17 @@ matrix representing species interactions between source and target taxa
 Get Interaction Matrix. Constructs an interaction matrix indicating whether source taxa (rows) or target taxa (columns) are known to interact with given type.
 }
 \examples{
-\dontrun{
+\donttest{
 get_interaction_matrix("Homo sapiens", "Mammalia", "interactsWith")
 }
 }
 \seealso{
-Other interactions: \code{\link{get_child_taxa}},
-  \code{\link{get_interaction_table}},
-  \code{\link{get_interaction_types}},
-  \code{\link{get_interactions_by_taxa}},
-  \code{\link{get_interactions_by_type}},
-  \code{\link{get_interactions}},
-  \code{\link{get_predators_of}}, \code{\link{get_prey_of}}
+Other interactions: 
+\code{\link{get_interaction_types}()},
+\code{\link{get_interactions_by_taxa}()},
+\code{\link{get_interactions_by_type}()},
+\code{\link{get_interactions}()},
+\code{\link{get_predators_of}()},
+\code{\link{get_prey_of}()}
 }
 \concept{interactions}

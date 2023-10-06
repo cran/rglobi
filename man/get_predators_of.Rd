@@ -18,18 +18,18 @@ list of recorded prey-predator interactions that involve the desired prey taxon.
 Get a List of Predators of a Given Prey Taxon
 }
 \examples{
-\dontrun{
+\donttest{
 get_predators_of("Rattus rattus")
 get_predators_of("Primates")
 }
 }
 \seealso{
-Other interactions: \code{\link{get_child_taxa}},
-  \code{\link{get_interaction_matrix}},
-  \code{\link{get_interaction_table}},
-  \code{\link{get_interaction_types}},
-  \code{\link{get_interactions_by_taxa}},
-  \code{\link{get_interactions_by_type}},
-  \code{\link{get_interactions}}, \code{\link{get_prey_of}}
+Other interactions: 
+\code{\link{get_interaction_matrix}()},
+\code{\link{get_interaction_types}()},
+\code{\link{get_interactions_by_taxa}()},
+\code{\link{get_interactions_by_type}()},
+\code{\link{get_interactions}()},
+\code{\link{get_prey_of}()}
 }
 \concept{interactions}
