@@ -49,7 +49,8 @@ else only distinct relationships}
 \item{read_csv}{function used to find csv associated to query url, defaulting to online query method}
 }
 \value{
-Returns data frame of interactions
+Returns data frame of interactions, or NULL (with a message) if the
+GloBI web service is not available
 }
 \description{
 Returns interactions involving specific taxa.  Secondary (target)
@@ -62,18 +63,23 @@ For data sources in which type of interactions were not specified, the interacti
 \donttest{
 get_interactions_by_taxa(sourcetaxon = "Rattus")
 get_interactions_by_taxa(sourcetaxon = "Aves", targettaxon = "Rattus")
+get_interactions_by_taxa(sourcetaxon = "Aves",
+accordingto = "globi:globalbioticinteractions/inaturalist")
+get_interactions_by_taxa(sourcetaxon = "Aves",
+accordingto = "globi:globalbioticinteractions/inaturalist",
+returnobservations = TRUE)
 get_interactions_by_taxa(sourcetaxon = "Rattus rattus",
 bbox = c(-67.87,12.79,-57.08,23.32))
 }
 }
 \seealso{
-Other interactions: 
-\code{\link{get_interaction_matrix}()},
-\code{\link{get_interaction_types}()},
-\code{\link{get_interactions_by_type}()},
-\code{\link{get_interactions}()},
-\code{\link{get_predators_of}()},
-\code{\link{get_prey_of}()}
+Other interactions:
+\code{\link[=get_interaction_matrix]{get_interaction_matrix()}},
+\code{\link[=get_interaction_types]{get_interaction_types()}},
+\code{\link[=get_interactions]{get_interactions()}},
+\code{\link[=get_interactions_by_type]{get_interactions_by_type()}},
+\code{\link[=get_predators_of]{get_predators_of()}},
+\code{\link[=get_prey_of]{get_prey_of()}}
 }
 \concept{interactions}
 \keyword{database}
